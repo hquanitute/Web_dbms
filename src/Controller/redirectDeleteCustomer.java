@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class logout
+ * Servlet implementation class redirectDeleteCustomer
  */
-@WebServlet("/logout")
-public class logout extends HttpServlet {
+@WebServlet("/redirectDeleteCustomer")
+public class redirectDeleteCustomer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public logout() {
+    public redirectDeleteCustomer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,9 +29,18 @@ public class logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8"); 
 		HttpSession ss= request.getSession();
-		ss.invalidate();
-		response.sendRedirect("loginRequest");
+		String s= (String)ss.getAttribute("username");
+		if(s==null||s=="") {
+	        RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/Login.jsp");  
+	        rd.include(request,response); 
+		}
+		else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("deleteCustomer");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

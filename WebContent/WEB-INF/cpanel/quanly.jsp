@@ -152,7 +152,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#jsp"><i class="fa fa-home"></i> <span>Trang chủ</span></a></li>
-        <li><a href="#"><i class="fa fa-users"></i> <span>Khách hàng</span></a></li>
+        <li><a href="redirectKhachHang"><i class="fa fa-users"></i> <span>Khách hàng</span></a></li>
         <li><a href="#"><i class="fa fa-user-circle"></i> <span>Nhân viên</span></a></li>
         <li><a href="#"><i class="fa fa-line-chart"></i> <span>Báo cáo</span></a></li>
         <li><a href="#"><i class="fa fa-asterisk"></i> <span>Dịch vụ</span></a></li>

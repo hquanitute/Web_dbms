@@ -46,38 +46,52 @@ public class login extends HttpServlet {
 
 	private void doCheck(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		RequestDispatcher rd=null;
 		HttpSession ss= request.getSession();
-		String s= (String)ss.getAttribute("username");
-		if(s==null||s.equals("")) {  
-			String userName= request.getParameter("inputUserName");
-
-			String passWord = request.getParameter("inputPassword");
-			LOGIN_DAO check = null;
-			try {
-				check = new LOGIN_DAO();
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
-			}
-			try {
-				if(check.checkUser(userName, passWord)) {  
-					ss.setAttribute("username", userName);
-
-					RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cpanel/quanly.jsp");
-					dispatcher.forward(request, response);
+		String action = request.getParameter("action");
+		if(action.equals("dangky"))
+		{
+			String ip= request.getParameter("ipChecked");
+			ss.setAttribute("host", ip);
+			rd= request.getRequestDispatcher("WEB-INF/Register.jsp");
+			rd.forward(request, response);
+		} 
+		else if(action.equals("dangnhap")) {
+			
+			String s= (String)ss.getAttribute("username");
+			if(s==null||s.equals("")) {  
+				String ip= request.getParameter("ipChecked");
+				ss.setAttribute("host", ip);
+				String userName= request.getParameter("inputUserName");
+				String passWord = request.getParameter("inputPassword");
+				LOGIN_DAO check = null;
+				try {
+					check = new LOGIN_DAO(ss.getAttribute("host").toString());
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
 				}
-				else{  
-			        request.setAttribute("error", "Username hoặc password không đúng, vui lòng nhập lại");  
-			        RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/Login.jsp");  
-			        rd.forward(request,response);  
-			    }  
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				try {
+					if(check.checkUser(userName, passWord)) {  
+						ss.setAttribute("username", userName);
+
+						rd = request.getRequestDispatcher("WEB-INF/cpanel/quanly.jsp");
+						rd.forward(request, response);
+					}
+					else{  
+				        request.setAttribute("error", "Username hoặc password không đúng, vui lòng nhập lại");  
+				        rd=request.getRequestDispatcher("WEB-INF/Login.jsp");  
+				        rd.forward(request,response);  
+				    }  
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else {
+				rd = request.getRequestDispatcher("WEB-INF/cpanel/quanly.jsp");
+				rd.include(request, response);
 			}
 		}
-		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cpanel/quanly.jsp");
-			dispatcher.include(request, response);
-		}
+		
 	}
 }

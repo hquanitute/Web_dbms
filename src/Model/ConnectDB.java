@@ -16,11 +16,11 @@ public class ConnectDB
 		this.conn = conn;
 	}
 	private Connection conn;
-	public Connection Connect() throws ClassNotFoundException, ServletException {
+	public Connection Connect(String ip) throws ClassNotFoundException, ServletException {
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		conn = null;
 		try {
-			String connectionUrl = "jdbc:sqlserver://localhost:1433;" +  
+			String connectionUrl = "jdbc:sqlserver://"+ip+":1433;" +  
 					   "databaseName=QUANLYSPA;user=quan;password=quan;";  
 			conn = DriverManager.getConnection(connectionUrl);  
 

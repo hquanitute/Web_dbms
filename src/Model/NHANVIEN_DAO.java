@@ -12,18 +12,15 @@ import javax.servlet.ServletException;
 
 import Object.KhachHang;
 
-public class KHACHHANG_DAO {
+public class NHANVIEN_DAO {
 	private Connection conn;
 
-	public KHACHHANG_DAO(String ip) throws ClassNotFoundException, ServletException {
+	public NHANVIEN_DAO(String ip) throws ClassNotFoundException, ServletException {
 		ConnectDB database = new ConnectDB();
 		conn=database.Connect(ip);
 	}
-	
-
-	
-	public void themKhachHang( String TenKH, int SDT, String DiaChi, String Email) throws SQLException {
-		String sql = "{call dbo.spThemKhachHang(?,?,?,?,null)}";
+	/*public void themNhanVien( String TenNV, int SDT, String DiaChi, int NgayCong, int Luong ) throws SQLException {
+		String sql = "{call dbo.spThemKhachHang(?,?,?,?)}";
 		CallableStatement cstm = conn.prepareCall(sql);
 		cstm.setString(1, TenKH);
 		cstm.setInt(2, SDT);
@@ -32,20 +29,19 @@ public class KHACHHANG_DAO {
 		cstm.executeUpdate();
 	}
 	
-	public void xoaKhachHang(int MaKH) throws SQLException {
+	public void xoaNhanVien(int ) throws SQLException {
 		String sql = "{call dbo.spXoaKhachHang(?)}";
 		CallableStatement cstm = conn.prepareCall(sql);
 		cstm.setInt(1, MaKH);
 		cstm.executeUpdate();
 	}
-	public void suaKhachHang(int MaKh, String TenKh, int SDT, String DiaChi, String Email) throws SQLException {
-		String sql = "{call dbo.spSuaKhachHang(?,?,?,?,?)}"; //phai truyen du tham so
+	public void suaKhachHang(int MaKh, String TenKh, int SDT, String Email) throws SQLException {
+		String sql = "{call dbo.spSuaKhachHang(?,?,?,?)}"; //phai truyen du tham so
 		CallableStatement cstm = conn.prepareCall(sql);
 		cstm.setInt(1, MaKh);
 		cstm.setString(2, TenKh);
 		cstm.setInt(3, SDT);
-		cstm.setString(4, DiaChi);
-		cstm.setString(5, Email);
+		cstm.setString(4, Email);
 		cstm.executeUpdate();
 	}
 	public List<KhachHang> xemDSKhachHang() throws SQLException {
@@ -64,5 +60,5 @@ public class KHACHHANG_DAO {
 			ds.add(kh);
 		}
 		return ds;
-	}
+	}*/
 }

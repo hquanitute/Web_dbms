@@ -1,36 +1,56 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="" content="">
-    <meta name="" content="">
+<html lang="vi">
 
-    <title>Signin Template for Bootstrap</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="" content="">
+  <meta name="" content="">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="bootstrap.min.js"></script>
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-  </head>
+  <title>Đăng nhập</title>
 
-  <body class="text-center">
-    <form class="form-signin" action="/login" method="POST">
-        <img src="image/logo.jpg">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../source/cpanelSource/bootstrap/dist/css/bootstrap.min.css">
+  <script src="../source/cpanelSource/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="../source/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+  <div class="row">
+    <form class="form-signin" action="login" method="POST">
+      <img src="image/logo.jpg">
       <h1 class="h3 mb-3 font-weight-normal">Đăng nhập</h1>
       <label for="inputEmail" class="sr-only">Username</label>
-      <input type="email" id="inputUserName" class="form-control" placeholder="Tên đăng nhập" required autofocus>
+      <input type="text" name="inputUserName" class="form-control" placeholder="Tên đăng nhập" required autofocus>
       <br>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required>
+      <input type="password" name="inputPassword" class="form-control" placeholder="Mật khẩu" required>
+
+      <div class="text-left">
+        <label class="float-left">Bạn là ai?</label>
+      </div>
+      <div class="row text-left">
+        <form action="">
+          <label class="radio-inline">
+            <input type="radio" name="time" value="Part-time">Khach <br>
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="time" value="Full-time">Nhân viên
+          </label>
+        </form>
+      </div>
+
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Nhớ mật khẩu
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng nhập</button>
+      <a type="submit" href="redirectRegister" class="mt-5 mb-3">Đăng ký tài khoản khách hàng mới</a>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
-  </body>
+  </div>
+</body>
+
 </html>
