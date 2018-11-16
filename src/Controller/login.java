@@ -53,7 +53,7 @@ public class login extends HttpServlet {
 		{
 			String ip= request.getParameter("ipChecked");
 			ss.setAttribute("host", ip);
-			rd= request.getRequestDispatcher("WEB-INF/Register.jsp");
+			rd= request.getRequestDispatcher("redirectRegister");
 			rd.forward(request, response);
 		} 
 		else if(action.equals("dangnhap")) {

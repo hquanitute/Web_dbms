@@ -47,7 +47,7 @@ public class addCustomer extends HttpServlet {
 		KHACHHANG_DAO kh=null;
 		HttpSession ss= request.getSession();
 		try {
-			kh = new KHACHHANG_DAO(ip);
+			kh = new KHACHHANG_DAO(ss.getAttribute("host").toString());
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -57,7 +57,7 @@ public class addCustomer extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("loginRequest");
 		dispatcher.forward(request, response);
 	}
 
