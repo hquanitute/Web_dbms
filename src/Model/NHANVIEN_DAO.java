@@ -15,9 +15,9 @@ import Object.KhachHang;
 public class NHANVIEN_DAO {
 	private Connection conn;
 
-	public NHANVIEN_DAO(String ip) throws ClassNotFoundException, ServletException {
+	public NHANVIEN_DAO(String ip,String username,String pass) throws ClassNotFoundException, ServletException {
 		ConnectDB database = new ConnectDB();
-		conn=database.Connect(ip);
+		conn=database.Connect(ip,username,pass);
 	}
 	/*public void themNhanVien( String TenNV, int SDT, String DiaChi, int NgayCong, int Luong ) throws SQLException {
 		String sql = "{call dbo.spThemKhachHang(?,?,?,?)}";

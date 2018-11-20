@@ -43,11 +43,11 @@
 				<%
 					dsIP obj = (dsIP) request.getAttribute("ip");
 					if(obj!=null){
-						ArrayList<InetAddress> ds = obj.getDs();
+						ArrayList<String> ds = obj.getDs();
 						for (int i = 0; i < ds.size(); i++) {
 							%>
 							<label class="radio-inline"> <input type="radio" name="ipChecked"
-								value="<%=ds.get(i).getHostAddress() %>"><%=ds.get(i).getHostAddress() %><br> </label>
+								value="<%=ds.get(i) %>"><%=ds.get(i) %><br> </label>
 							<%
 							}
 					}

@@ -37,7 +37,8 @@ public class addCustomer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		String ip=request.getParameter("ipChecked");
+		HttpSession ss= request.getSession();
+		String ip=(String) ss.getAttribute("hostKhach");
 		String username=request.getParameter("username");
 		String inputPassword= request.getParameter("inputPassword");
 		String email= request.getParameter("email");
@@ -45,9 +46,8 @@ public class addCustomer extends HttpServlet {
 		String ten = request.getParameter("FullName");
 		int phonenumber=Integer.parseInt(request.getParameter("phonenumber"));
 		KHACHHANG_DAO kh=null;
-		HttpSession ss= request.getSession();
 		try {
-			kh = new KHACHHANG_DAO(ss.getAttribute("host").toString());
+			kh = new KHACHHANG_DAO(ip,"quan","quan");
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

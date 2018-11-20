@@ -50,7 +50,7 @@ public class editCustomer extends HttpServlet {
 		else {
 			KHACHHANG_DAO kh = null;
 			try {
-				kh = new KHACHHANG_DAO(ss.getAttribute("host").toString());
+				kh = new KHACHHANG_DAO(ss.getAttribute("host").toString(),ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}

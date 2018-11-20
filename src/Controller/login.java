@@ -64,16 +64,17 @@ public class login extends HttpServlet {
 				ss.setAttribute("host", ip);
 				String userName= request.getParameter("inputUserName");
 				String passWord = request.getParameter("inputPassword");
+				ss.setAttribute("pass", passWord);
+				ss.setAttribute("username", userName);
 				LOGIN_DAO check = null;
 				try {
-					check = new LOGIN_DAO(ss.getAttribute("host").toString());
+					check = new LOGIN_DAO(ss.getAttribute("host").toString(),ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
 				try {
 					if(check.checkUser(userName, passWord)) {  
-						ss.setAttribute("username", userName);
-
+						
 						rd = request.getRequestDispatcher("WEB-INF/cpanel/quanly.jsp");
 						rd.forward(request, response);
 					}

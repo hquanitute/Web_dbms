@@ -1,16 +1,16 @@
 package Object;
 
-import java.net.InetAddress;
+
 import java.util.ArrayList;
 
 public class dsIP {
-	private ArrayList<InetAddress> ds;
+	private ArrayList<String> ds;
 
-	public ArrayList<InetAddress> getDs() {
+	public ArrayList<String> getDs() {
 		return ds;
 	}
 
-	public void setDs(ArrayList<InetAddress> ds) {
+	public void setDs(ArrayList<String> ds) {
 		this.ds = ds;
 	}
 	

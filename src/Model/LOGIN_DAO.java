@@ -13,9 +13,9 @@ import Object.DangNhap;
 
 public class LOGIN_DAO {
 	private Connection conn;
-	public LOGIN_DAO(String ip) throws ClassNotFoundException, ServletException {
+	public LOGIN_DAO(String ip,String username,String pass) throws ClassNotFoundException, ServletException {
 		ConnectDB database = new ConnectDB();
-		conn = database.Connect(ip);
+		conn = database.Connect(ip,username,pass);
 	}
 	public List<DangNhap> getUser() throws ClassNotFoundException, ServletException, SQLException {
 		Statement sql = conn.createStatement();

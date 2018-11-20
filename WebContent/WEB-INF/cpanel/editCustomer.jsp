@@ -73,7 +73,7 @@
 					type="submit">Sửa</button>
 				<a href="redirectKhachHang"
 					class="btn btn-primary btn-lg btn-block mx-auto col-md-4"
-					type="submit">Xóa</a>
+					type="submit">Hủy</a>
 			</form>
 		</div>
 

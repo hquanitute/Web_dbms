@@ -15,9 +15,9 @@ import Object.KhachHang;
 public class KHACHHANG_DAO {
 	private Connection conn;
 
-	public KHACHHANG_DAO(String ip) throws ClassNotFoundException, ServletException {
+	public KHACHHANG_DAO(String ip,String username,String pass) throws ClassNotFoundException, ServletException {
 		ConnectDB database = new ConnectDB();
-		conn=database.Connect(ip);
+		conn=database.Connect(ip,username,pass);
 	}
 	
 
