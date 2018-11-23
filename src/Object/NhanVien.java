@@ -3,7 +3,7 @@ package Object;
 public class NhanVien {
 	private int MaNV;
 	private String TenNV;
-	private String SDT;
+	private int SDT;
 	private String DiaChi;
 	private int NgayCong;
 	private int Luong;
@@ -20,10 +20,10 @@ public class NhanVien {
 	public void setTenNV(String tenNV) {
 		TenNV = tenNV;
 	}
-	public String getSDT() {
+	public int getSDT() {
 		return SDT;
 	}
-	public void setSDT(String sDT) {
+	public void setSDT(int sDT) {
 		SDT = sDT;
 	}
 	public String getDiaChi() {
@@ -50,7 +50,7 @@ public class NhanVien {
 	public void setMaUser(int maUser) {
 		MaUser = maUser;
 	}
-	public NhanVien(int maNV, String tenNV, String sDT, String diaChi, int ngayCong, int luong, int maUser) {
+	public NhanVien(int maNV, String tenNV, int sDT, String diaChi, int ngayCong, int luong, int maUser) {
 		super();
 		MaNV = maNV;
 		TenNV = tenNV;

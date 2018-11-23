@@ -1,7 +1,3 @@
-<%@page import="Object.DichVu"%>
-<%@page import="Object.dsDichVu"%>
-<%@page import="Object.NhanVien"%>
-<%@page import="Object.dsNhanVien"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="Object.dsKhachHang"%>
 <%@ page isELIgnored="false"%>
@@ -159,15 +155,24 @@
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<!-- Optionally, you can add icons to the links -->
-					<li class=""><a href="redirectCpanel"><i class="fa fa-home"></i> <span>Trang chủ</span></a></li>
-        <li><a href="redirectKhachHang"><i class="fa fa-users"></i> <span>Khách hàng</span></a></li>
-        <li><a href="redirectNhanVien" ><i class="fa fa-user-circle"></i> <span>Nhân viên</span></a></li>
-        <li><a href="redirectBaoCao"><i class="fa fa-line-chart"></i> <span>Báo cáo</span></a></li>
-        <li class="active"><a href="redirectDichVu"><i class="fa fa-asterisk"></i> <span>Dịch vụ</span></a></li>
-        <li><a href="redirectHoaDon"><i class="fa fa-id-card"></i> <span>Hóa đơn</span></a></li>
-        <li><a href="redirectKhuyenmai"><i class="fa fa-dollar"></i> <span>Khuyến mãi</span></a></li>
-        <li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i> <span>Tài khoản</span></a></li>
-        <li><a href="redirectThongtin"><i class="fa fa-info"></i> <span>Thông tin</span></a></li>
+					<li class="active"><a href="redirectCpanel"><i
+							class="fa fa-home"></i> <span>Trang chủ</span></a></li>
+					<li class="active"><a href="redirectKhachHang"><i
+							class="fa fa-users"></i> <span>Khách hàng</span></a></li>
+					<li><a href="redirectNhanVien"><i
+							class="fa fa-user-circle"></i> <span>Nhân viên</span></a></li>
+					<li><a href="redirectBaoCao"><i class="fa fa-line-chart"></i>
+							<span>Báo cáo</span></a></li>
+					<li><a href="redirectDichVu"><i class="fa fa-asterisk"></i>
+							<span>Dịch vụ</span></a></li>
+					<li><a href="redirectHoaDon"><i class="fa fa-id-card"></i>
+							<span>Hóa đơn</span></a></li>
+					<li><a href="redirectKhuyenmai"><i class="fa fa-dollar"></i>
+							<span>Khuyến mãi</span></a></li>
+					<li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i>
+							<span>Tài khoản</span></a></li>
+					<li><a href="redirectThongtin"><i class="fa fa-info"></i>
+							<span>Thông tin</span></a></li>
 				</ul>
 				<!-- /.sidebar-menu -->
 			</section>
@@ -193,63 +198,47 @@
 				<!--------------------------
         | Your Page Content Here |
         -------------------------->
-				<div class="row">
-					<div class="card ">
-						<div class="card-header card-header-primary">
+				<div class="row my-auto mx-auto ">
+					<div class="col-8">
+						<form class="needs-validation" action="addStaff" method="post">
 							<div class="row">
-								<h4 class="card-title col-xs-4 my-auto ml-sm-5">Danh sách
-									dịch vụ</h4>
-								<a href="redirectAddService">+ Thêm dịch vụ</a>
+								<div class="col-md-12 mb-3">
+									<label for="fullName">Họ tên</label> <input type="text"
+										class="form-control" name="FullName" placeholder="Họ và tên"
+										required>
+									<div class="invalid-feedback">Vui lòng nhập họ tên</div>
+								</div>
 							</div>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th scope="col">STT</th>
-											<th scope="col">Tên DV</th>
-											<th scope="col">Giá</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-											dsDichVu obj = (dsDichVu) request.getAttribute("dsDV");
-											List<DichVu> ds = (List<DichVu>) obj.getDs();
-										%>
 
-										<%
-											for (int i = 0; i < ds.size(); i++) {
-										%>
-										<tr>
-											<td><%=i+1%></td>
-											<td><%=ds.get(i).getTenGoi()%></td>
-											<td><%=ds.get(i).getGiaTien()%></td>
-											<td><a href="redirectEditService?madv=<%=ds.get(i).getMaDV()%>&
-											tendv=<%=ds.get(i).getTenGoi()%>&
-											giatien=<%=ds.get(i).getGiaTien()%>&
-											">Sửa</a></td>
-											<td><a href="deleteService?madv=<%=ds.get(i).getMaDV()%>">Xóa</a></td>
-										</tr>
-										<%
-											}
-										%>
-									</tbody>
-								</table>
-								<!-- <nav aria-label="Page navigation example">
-									<ul class="pagination justify-content-center">
-										<li class="page-item disabled"><a class="page-link"
-											href="#" tabindex="-1">Previous</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">Next</a>
-										</li>
-									</ul>
-								</nav> -->
+							<div class="mb-3">
+								<label for="address">Địa chỉ</label> <input type="text"
+									class="form-control" name="address"
+									placeholder="123 Võ văn Ngân" required>
+								<div class="invalid-feedback">Vui lòng nhập địa chỉ</div>
 							</div>
-						</div>
+							<div class="mb-3">
+								<label for="sdt">SĐT</label> <input type="text"
+									class="form-control" name="phonenumber" placeholder="012345678"
+									required>
+								<div class="invalid-feedback">Vui lòng nhập SĐT</div>
+							</div>
+							<div class="mb-3">
+								<label for="ngaycong">Ngày công</label> <input type="text"
+									class="form-control" name="ngaycong" placeholder="15"
+									required>
+								<div class="invalid-feedback">Vui lòng nhập Ngày công</div>
+							</div>
+							<div class="mb-3">
+								<label for="luong">Lương</label> <input type="text"
+									class="form-control" name="luong" placeholder="100k"
+									required>
+								<div class="invalid-feedback">Vui lòng nhập Lương</div>
+							</div>
+							<button class="btn btn-primary btn-lg btn-block mx-auto col-md-4"
+								type="submit">Xác nhận</button>
+						</form>
 					</div>
+
 				</div>
 
 			</section>
