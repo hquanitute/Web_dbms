@@ -200,39 +200,26 @@
         -------------------------->
 				<div class="row my-auto mx-auto ">
 					<div class="col-8">
-						<form class="needs-validation" action="addStaff" method="post">
+						<form class="needs-validation" action="addSale" method="get">
 							<div class="row">
 								<div class="col-md-12 mb-3">
-									<label for="fullName">Họ tên</label> <input type="text"
-										class="form-control" name="FullName" placeholder="Họ và tên"
-										required>
-									<div class="invalid-feedback">Vui lòng nhập họ tên</div>
+									<label>Tên KM</label> <input type="text"
+										class="form-control" name="tenkm"	required>
+									<div class="invalid-feedback">Vui lòng nhập tên km</div>
 								</div>
 							</div>
 
 							<div class="mb-3">
-								<label for="address">Địa chỉ</label> <input type="text"
-									class="form-control" name="address"
-									placeholder="123 Võ văn Ngân" required>
-								<div class="invalid-feedback">Vui lòng nhập địa chỉ</div>
+								<label>Mã DV</label> <input type="text" class="form-control"
+									name="madv" placeholder="1" required>
+								<div class="invalid-feedback">Vui lòng nhập mã DV</div>
 							</div>
-							<div class="mb-3">
-								<label for="sdt">SĐT</label> <input type="text"
-									class="form-control" name="phonenumber" placeholder="012345678"
-									required>
-								<div class="invalid-feedback">Vui lòng nhập SĐT</div>
-							</div>
-							<div class="mb-3">
-								<label for="ngaycong">Ngày công</label> <input type="text"
-									class="form-control" name="ngaycong" placeholder="15"
-									required>
-								<div class="invalid-feedback">Vui lòng nhập Ngày công</div>
-							</div>
-							<div class="mb-3">
-								<label for="luong">Lương</label> <input type="text"
-									class="form-control" name="luong" placeholder="100k"
-									required>
-								<div class="invalid-feedback">Vui lòng nhập Lương</div>
+							<div class="row">
+								<div class="col-md-12 mb-3">
+									<label>Thời gian và nội dung</label> <input type="text"
+										class="form-control" name="thoigian" required>
+									<div class="invalid-feedback">Vui lòng nhập tên km</div>
+								</div>
 							</div>
 							<button class="btn btn-primary btn-lg btn-block mx-auto col-md-4"
 								type="submit">Xác nhận</button>

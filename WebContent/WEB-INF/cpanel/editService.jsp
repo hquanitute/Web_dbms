@@ -167,7 +167,7 @@
 							<span>Dịch vụ</span></a></li>
 					<li><a href="redirectHoaDon"><i class="fa fa-id-card"></i>
 							<span>Hóa đơn</span></a></li>
-					<li><a href="redirectKhuyenmai"><i class="fa fa-dollar"></i>
+					<li><a href="redirectKhuyenMai"><i class="fa fa-dollar"></i>
 							<span>Khuyến mãi</span></a></li>
 					<li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i>
 							<span>Tài khoản</span></a></li>
