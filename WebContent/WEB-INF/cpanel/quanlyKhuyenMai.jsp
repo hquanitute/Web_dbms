@@ -165,9 +165,9 @@
         <li><a href="redirectKhachHang"><i class="fa fa-users"></i> <span>Khách hàng</span></a></li>
         <li><a href="redirectNhanVien" ><i class="fa fa-user-circle"></i> <span>Nhân viên</span></a></li>
         <li><a href="redirectBaoCao"><i class="fa fa-line-chart"></i> <span>Báo cáo</span></a></li>
-        <li class="active"><a href="redirectDichVu"><i class="fa fa-asterisk"></i> <span>Dịch vụ</span></a></li>
+        <li><a href="redirectDichVu"><i class="fa fa-asterisk"></i> <span>Dịch vụ</span></a></li>
         <li><a href="redirectHoaDon"><i class="fa fa-id-card"></i> <span>Hóa đơn</span></a></li>
-        <li><a href="redirectKhuyenMai"><i class="fa fa-dollar"></i> <span>Khuyến mãi</span></a></li>
+        <li class="active"><a href="redirectKhuyenMai"><i class="fa fa-dollar"></i> <span>Khuyến mãi</span></a></li>
         <li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i> <span>Tài khoản</span></a></li>
         <li><a href="redirectThongtin"><i class="fa fa-info"></i> <span>Thông tin</span></a></li>
 				</ul>

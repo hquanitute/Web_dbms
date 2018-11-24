@@ -204,15 +204,15 @@
 							<div class="row">
 								<div class="row">
 									<div class="col-md-12 mb-3">
-										<label>Họ tên</label> <input type="text"
+										<label>Tên gói</label> <input type="text"
 											class="form-control" name="tengoi"
-											placeholder="Họ và tên" required>
+											placeholder="Tên gói" required>
 										<div class="invalid-feedback">Vui lòng nhập tên dv</div>
 									</div>
 								</div>
 
 								<div class="mb-3">
-									<label>SĐT</label> <input type="text"
+									<label>Giá</label> <input type="text"
 										class="form-control" name="giatien"
 										placeholder="100k" required>
 									<div class="invalid-feedback">Vui lòng nhập giá tiền</div>

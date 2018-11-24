@@ -1,12 +1,11 @@
 package Object;
 
-import java.sql.Date;
 
 public class HoaDon {
 	private int MaHD;
 	private int MaKH;
 	private int SoTien;
-	private Date ThoiGian;
+	private String ThoiGian;
 	public int getMaHD() {
 		return MaHD;
 	}
@@ -25,13 +24,13 @@ public class HoaDon {
 	public void setSoTien(int soTien) {
 		SoTien = soTien;
 	}
-	public Date getThoiGian() {
+	public String getThoiGian() {
 		return ThoiGian;
 	}
-	public void setThoiGian(Date thoiGian) {
+	public void setThoiGian(String thoiGian) {
 		ThoiGian = thoiGian;
 	}
-	public HoaDon(int maHD, int maKH, int soTien, Date thoiGian) {
+	public HoaDon(int maHD, int maKH, int soTien, String thoiGian) {
 		super();
 		MaHD = maHD;
 		MaKH = maKH;

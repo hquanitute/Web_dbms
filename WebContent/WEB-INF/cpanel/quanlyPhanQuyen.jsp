@@ -1,3 +1,5 @@
+<%@page import="Object.PhanQuyen"%>
+<%@page import="Object.dsPhanQuyen"%>
 <%@page import="Object.NhanVien"%>
 <%@page import="Object.dsNhanVien"%>
 <%@page import="java.net.URLEncoder"%>
@@ -47,6 +49,27 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+<!-- style dropdown -->
+<style>
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+</style>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -157,16 +180,26 @@
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<!-- Optionally, you can add icons to the links -->
-					<li class=""><a href="redirectCpanel"><i class="fa fa-home"></i> <span>Trang chủ</span></a></li>
-        <li><a href="redirectKhachHang"><i class="fa fa-users"></i> <span>Khách hàng</span></a></li>
-        <li class="active"><a href="redirectNhanVien" ><i class="fa fa-user-circle"></i> <span>Nhân viên</span></a></li>
-        <li><a href="redirectBaoCao"><i class="fa fa-line-chart"></i> <span>Báo cáo</span></a></li>
-        <li><a href="redirectDichVu"><i class="fa fa-asterisk"></i> <span>Dịch vụ</span></a></li>
-        <li><a href="redirectHoaDon"><i class="fa fa-id-card"></i> <span>Hóa đơn</span></a></li>
-        <li><a href="redirectKhuyenMai"><i class="fa fa-dollar"></i> <span>Khuyến mãi</span></a></li>
-        <li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i> <span>Tài khoản</span></a></li>
-        <li><a href="redirectThongtin"><i class="fa fa-info"></i> <span>Thông tin</span></a></li>
-        <li><a href="redirectPhanQuyen"><i class="fa fa-info"></i> <span>Phân quyền</span></a></li>
+					<li class=""><a href="redirectCpanel"><i
+							class="fa fa-home"></i> <span>Trang chủ</span></a></li>
+					<li><a href="redirectKhachHang"><i class="fa fa-users"></i>
+							<span>Khách hàng</span></a></li>
+					<li><a href="redirectNhanVien"><i
+							class="fa fa-user-circle"></i> <span>Nhân viên</span></a></li>
+					<li><a href="redirectBaoCao"><i class="fa fa-line-chart"></i>
+							<span>Báo cáo</span></a></li>
+					<li><a href="redirectDichVu"><i class="fa fa-asterisk"></i>
+							<span>Dịch vụ</span></a></li>
+					<li><a href="redirectHoaDon"><i class="fa fa-id-card"></i>
+							<span>Hóa đơn</span></a></li>
+					<li><a href="redirectKhuyenMai"><i class="fa fa-dollar"></i>
+							<span>Khuyến mãi</span></a></li>
+					<li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i>
+							<span>Tài khoản</span></a></li>
+					<li><a href="redirectThongtin"><i class="fa fa-info"></i>
+							<span>Thông tin</span></a></li>
+					<li class="active"><a href="redirectPhanQuyen"><i
+							class="fa fa--info"></i> <span>Phân quyền</span></a></li>
 				</ul>
 				<!-- /.sidebar-menu -->
 			</section>
@@ -197,8 +230,8 @@
 						<div class="card-header card-header-primary">
 							<div class="row">
 								<h4 class="card-title col-xs-4 my-auto ml-sm-5">Danh sách
-									nhân viên</h4>
-								<a href="redirectAddStaff">+ Thêm nhân viên</a>
+									phân quyền</h4>
+
 							</div>
 						</div>
 						<div class="card-body">
@@ -207,42 +240,44 @@
 									<thead>
 										<tr>
 											<th scope="col">STT</th>
+											<th scope="col">Mã NV</th>
 											<th scope="col">Tên NV</th>
-											<th scope="col">Địa chỉ</th>
-											<th scope="col">SDT</th>
-											<th scope="col">Lương</th>
-											<th scope="col">Mã chức vụ</th>
+											<th scope="col">Chức vụ</th>
 										</tr>
 									</thead>
 									<tbody>
-										<%
-											dsNhanVien obj = (dsNhanVien) request.getAttribute("dsNV");
-											List<NhanVien> ds = (List<NhanVien>) obj.getDs();
+										<form action="editPQ">
+											<%
+											dsPhanQuyen obj = (dsPhanQuyen) request.getAttribute("dsPQ");
+											List<PhanQuyen> ds = (List<PhanQuyen>) obj.getDs();
 										%>
 
-										<%
+											<%
 											for (int i = 0; i < ds.size(); i++) {
 										%>
-										<tr>
-											<td><%=i+1%></td>
-											<td><%=ds.get(i).getTenNV()%></td>
-											<td><%=ds.get(i).getDiaChi()%></td>
-											<td><%=ds.get(i).getSDT()%></td>
-											<td><%=ds.get(i).getLuong()%></td>
-											<td><%=ds.get(i).getNgayCong()%></td>
-											<td><%=ds.get(i).getMaUser()%></td>
-											<td><a href="redirectEditStaff?manv=<%=ds.get(i).getMaNV()%>&
-											tennv=<%=URLEncoder.encode(ds.get(i).getTenNV(), "UTF-8")%>&
-											diachi=<%=URLEncoder.encode(ds.get(i).getDiaChi(), "UTF-8")%>&
-											sdt=<%=ds.get(i).getSDT()%>&
-											luong=<%=ds.get(i).getLuong()%>&
-											ngaycong=<%=ds.get(i).getNgayCong()%>&
-											">Sửa</a></td>
-											<td><a href="deleteStaff?manv=<%=ds.get(i).getMaNV()%>">Xóa</a></td>
-										</tr>
-										<%
+											<tr>
+												<td><%=i + 1%></td>
+												<td><%=ds.get(i).getMaNV()%></td>
+												<td><%=ds.get(i).getTenNV()%></td>
+												<td>
+													<h3 align="center">
+														<label for="Points"></label> <select name="Points"
+															id="Points">
+															<option selected disabled hidden="hidden"><%=ds.get(i).getChucVu()%></option>
+															<option value="admin" >Admin</option>
+															<option value="nhanvien" >Nhân viên</option>
+														</select> <br />
+													</h3>
+												</td>
+												<td>
+													<input type="submit" value="Thay đổi">
+												</td>
+											</tr>
+											<%
 											}
 										%>
+										</form>
+
 									</tbody>
 								</table>
 								<!-- <nav aria-label="Page navigation example">
