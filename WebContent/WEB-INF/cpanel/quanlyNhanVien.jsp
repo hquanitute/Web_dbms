@@ -211,7 +211,8 @@
 											<th scope="col">Địa chỉ</th>
 											<th scope="col">SDT</th>
 											<th scope="col">Lương</th>
-											<th scope="col">Mã chức vụ</th>
+											<th scope="col">Ngày công</th>
+											<th scope="col">Mã User</th>
 										</tr>
 									</thead>
 									<tbody>

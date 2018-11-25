@@ -61,6 +61,7 @@ public class NHANVIEN_DAO {
 		 nv.setDiaChi(rs.getString("DiaChi"));
 		 nv.setNgayCong(rs.getInt("NgayCong"));
 		 nv.setLuong(rs.getInt("Luong"));
+		 nv.setMaUser(rs.getInt("MaUser"));
 		 ds.add(nv);
 		}
 		return ds;

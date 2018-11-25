@@ -1,8 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Model.KHUYENMAI_DAO;
-import Model.PHANQUYEN_DAO;
+import Model.HOADON_DAO;
 
 /**
- * Servlet implementation class editPQ
+ * Servlet implementation class redirectAddBill
  */
-@WebServlet("/editPQ")
-public class editPQ extends HttpServlet {
+@WebServlet("/redirectAddBill")
+public class redirectAddBill extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public editPQ() {
+    public redirectAddBill() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,25 +40,7 @@ public class editPQ extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			PHANQUYEN_DAO pq = null;
-			try {
-				pq = new PHANQUYEN_DAO(ss.getAttribute("host").toString(),ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
-			}
-			try {				
-				String maNV = request.getParameter("maNV");
-				String chucVu= request.getParameter("chucVu");
-				if(chucVu.equals("nhanvien")) {
-					pq.phanQuyenNV(maNV, chucVu);
-				} if(chucVu.equals("admin")) {
-					pq.phanQuyen(maNV, chucVu);
-				}
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher("redirectNhanVien");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cpanel/addBill.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

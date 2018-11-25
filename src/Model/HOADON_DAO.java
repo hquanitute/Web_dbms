@@ -24,12 +24,12 @@ public class HOADON_DAO {
 	
 
 	
-	public void themHoaDon( int MaKH,int SoTien,String thoiGian) throws SQLException {
+	public void themHoaDon( int MaKH,int SoTien,String ThoiGian) throws SQLException {
 		String sql = "{call dbo.spThemHoaDon(?,?,?)}";
 		CallableStatement cstm = conn.prepareCall(sql);
 		cstm.setInt(1, MaKH);
-		cstm.setInt(2, SoTien);
-		cstm.setString(3, thoiGian);
+		cstm.setInt(2,SoTien);
+		cstm.setString(3, ThoiGian);
 		cstm.executeUpdate();
 	}
 	

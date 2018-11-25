@@ -1,3 +1,5 @@
+<%@page import="Object.DichVu"%>
+<%@page import="Object.dsDichVu"%>
 <%@page import="Object.HoaDon"%>
 <%@page import="Object.dsHoaDon"%>
 <%@page import="Object.PhanQuyen"%>
@@ -192,16 +194,16 @@
 							<span>Báo cáo</span></a></li>
 					<li><a href="redirectDichVu"><i class="fa fa-asterisk"></i>
 							<span>Dịch vụ</span></a></li>
-					<li class="active"><a href="redirectHoaDon"><i class="fa fa-id-card"></i>
-							<span>Hóa đơn</span></a></li>
+					<li class="active"><a href="redirectHoaDon"><i
+							class="fa fa-id-card"></i> <span>Hóa đơn</span></a></li>
 					<li><a href="redirectKhuyenMai"><i class="fa fa-dollar"></i>
 							<span>Khuyến mãi</span></a></li>
 					<li><a href="redirectTaiKhoan"><i class="fa fa-user-o"></i>
 							<span>Tài khoản</span></a></li>
 					<li><a href="redirectThongtin"><i class="fa fa-info"></i>
 							<span>Thông tin</span></a></li>
-					<li ><a href="redirectPhanQuyen"><i
-							class="fa fa--info"></i> <span>Phân quyền</span></a></li>
+					<li><a href="redirectPhanQuyen"><i class="fa fa--info"></i>
+							<span>Phân quyền</span></a></li>
 				</ul>
 				<!-- /.sidebar-menu -->
 			</section>
@@ -232,54 +234,32 @@
 						<div class="card-header card-header-primary">
 							<div class="row">
 								<h4 class="card-title col-xs-4 my-auto ml-sm-5">Danh sách
-									phân quyền</h4>
-								<a href="redirectAddBill">+ Thêm hóa đơn</a>
+									dịch vụ</h4>
 							</div>
 						</div>
 						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th scope="col">STT</th>
-											<th scope="col">Mã KH</th>
-											<th scope="col">Số tiền</th>
-											<th scope="col">Thời gian</th>
-										</tr>
-									</thead>
-									<tbody>
-											<%
-											dsHoaDon obj = (dsHoaDon) request.getAttribute("dsHD");
-											List<HoaDon> ds = (List<HoaDon>) obj.getDs();
-										%>
-
-											<%
-											for (int i = 0; i < ds.size(); i++) {
-										%>
-											<tr>
-												<td><%=i + 1%></td>
-												<td><%=ds.get(i).getMaHD()%></td>
-												<td><%=ds.get(i).getSoTien()%></td>
-												<td><%=ds.get(i).getThoiGian()%></td>
-											</tr>
-											<%
-											}
-										%>
-
-									</tbody>
-								</table>
-								<!-- <nav aria-label="Page navigation example">
-									<ul class="pagination justify-content-center">
-										<li class="page-item disabled"><a class="page-link"
-											href="#" tabindex="-1">Previous</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">Next</a>
-										</li>
-									</ul>
-								</nav> -->
-							</div>
+							<!-- đặt dv -->
+							<form action="addBill">
+								<div class="row">
+									<div class="col-md-12 mb-3">
+										<label>Mã Khách hàng</label> <input type="text"
+											class="form-control" name="makh" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 mb-3">
+										<label>Số tiền</label> <input type="text" class="form-control"
+											name="sotien" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 mb-3">
+										<label>Thời gian</label> <input type="text"
+											class="form-control" name="thoigian" required>
+									</div>
+								</div>
+								<input type="submit" value="Tạo">
+							</form>
 						</div>
 					</div>
 				</div>

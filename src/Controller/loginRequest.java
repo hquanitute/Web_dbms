@@ -49,7 +49,7 @@ public class loginRequest extends HttpServlet {
 	public void catChuoi(String s,ArrayList<String> ds) {
 		String[] split= s.split("\\s+");
 		if(split.length==4) {
-			System.out.println(split[1]+" "+split[3]);
+			//System.out.println(split[1]+" "+split[3]);
 			if(split[3].equals("static")) {
 				return;
 			}

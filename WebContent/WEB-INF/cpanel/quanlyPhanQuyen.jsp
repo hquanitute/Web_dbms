@@ -259,18 +259,12 @@
 												<td><%=i + 1%></td>
 												<td><%=ds.get(i).getMaNV()%></td>
 												<td><%=ds.get(i).getTenNV()%></td>
+												<td><%=ds.get(i).getChucVu()%></td>
 												<td>
-													<h3 align="center">
-														<label for="Points"></label> <select name="Points"
-															id="Points">
-															<option selected disabled hidden="hidden"><%=ds.get(i).getChucVu()%></option>
-															<option value="admin" >Admin</option>
-															<option value="nhanvien" >Nhân viên</option>
-														</select> <br />
-													</h3>
-												</td>
-												<td>
-													<input type="submit" value="Thay đổi">
+													<a href="editPQ?maNV=<%=ds.get(i).getMaNV()%>&
+													chucVu=admin" >Quản lý</a>
+													<a href="editPQ?maNV=<%=ds.get(i).getMaNV()%>&
+													chucVu=nhanvien" >Nhân viên</a>
 												</td>
 											</tr>
 											<%
@@ -283,7 +277,7 @@
 								<!-- <nav aria-label="Page navigation example">
 									<ul class="pagination justify-content-center">
 										<li class="page-item disabled"><a class="page-link"
-											href="#" tabindex="-1">Previous</a></li>
+											href="#" tabindex="-1">Previous</a></li> 
 										<li class="page-item"><a class="page-link" href="#">1</a></li>
 										<li class="page-item"><a class="page-link" href="#">2</a></li>
 										<li class="page-item"><a class="page-link" href="#">3</a></li>
